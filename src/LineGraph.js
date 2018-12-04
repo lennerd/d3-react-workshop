@@ -35,7 +35,13 @@ function LineGraph(props) {
 
   return (
     <svg width={width} height={height}>
-      <path d={line(data)} stroke="black" strokeWidth="1" fill="none" />
+      <path
+        d={line(data)}
+        stroke="black"
+        strokeWidth="1"
+        fill="none"
+        style={{ transition: 'd 400ms' }}
+      />
       <g ref={call(xAxis)} transform={`translate(0, ${height - margin.bottom})`} />
       <g ref={call(yAxis)} transform={`translate(${margin.left}, 0)`} />
     </svg>
@@ -44,6 +50,6 @@ function LineGraph(props) {
 
 function call(callback) {
   return ref => d3.select(ref).call(callback);
-} 
+}
 
 export default LineGraph;
